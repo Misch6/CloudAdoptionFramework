@@ -17,7 +17,7 @@ namespace AzureNamingTool.Models
         {
             get { return _ShortName; }   // get method
             //set => _ShortName = value?.ToLower();   // set method
-            set  => _ShortName = ShortName;
+            set { return _ShortName; }
         }
         public string Scope { get; set; }
         public string LengthMin { get; set; }
