@@ -71,7 +71,8 @@ namespace AzureNamingTool.Services
                 }
 
                 // Force lowercase on the shortname
-                item.ShortName = item.ShortName.ToLower();
+                //item.ShortName = item.ShortName.ToLower();
+                item.ShortName = item.ShortName.ToString();
 
                 // Get list of items
                 var items = await ConfigurationHelper.GetList<ResourceType>();
@@ -153,7 +154,8 @@ namespace AzureNamingTool.Services
                 foreach (ResourceType item in items)
                 {
                     // Force lowercase on the shortname
-                    item.ShortName = item.ShortName.ToLower();
+                    //item.ShortName = item.ShortName.ToLower();
+                    item.ShortName = item.ShortName.ToString();
                     item.Id = i;
                     newitems.Add(item);
                     i += 1;
