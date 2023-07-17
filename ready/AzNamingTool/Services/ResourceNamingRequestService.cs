@@ -77,7 +77,7 @@ namespace AzureNamingTool.Services
                             }
                             else
                             {
-                                value = prop.GetType().GetProperty("ShortName").GetValue(prop, null).ToLower();
+                                value = prop.GetType().GetProperty("ShortName").GetValue(prop, null).ToString();
                             }
 
                             // Check if the delimeter is already ignored
@@ -181,12 +181,12 @@ namespace AzureNamingTool.Services
                     GeneratedName generatedName = new GeneratedName()
                     {
                         CreatedOn = DateTime.Now,
-                        ResourceName = name.ToLower(),
+                        ResourceName = name.ToString(),
                         Components = lstComponents
                     };
                     await GeneratedNamesService.PostItem(generatedName);
                     response.Success = true;
-                    response.ResourceName = name.ToLower();
+                    response.ResourceName = name.ToString();
                     response.Message = sbMessage.ToString();
                     return response;
                 }
@@ -650,7 +650,7 @@ namespace AzureNamingTool.Services
                         GeneratedName generatedName = new GeneratedName()
                         {
                             CreatedOn = DateTime.Now,
-                            ResourceName = name.ToLower(),
+                            ResourceName = name.ToString(),
                             Components = lstComponents,
                             ResourceTypeName = resourceType.Resource
                         };
@@ -658,7 +658,7 @@ namespace AzureNamingTool.Services
                         if (responseGenerateName.Success)
                         {
                             response.Success = true;
-                            response.ResourceName = name.ToLower();
+                            response.ResourceName = name.ToString();
                             response.Message = sbMessage.ToString();
 
                             // Check if the GenerationWebhook is configured
